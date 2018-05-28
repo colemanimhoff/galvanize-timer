@@ -3,6 +3,8 @@ import {Howl} from 'howler'
 
 class Theme extends React.Component {
 
+
+    
 playSound = (event) => {
     let sound = new Howl({
         src: ['./sounds/seagulls.wav']

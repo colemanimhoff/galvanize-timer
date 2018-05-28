@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import './App.css'
 import Timer from './components/Timer'
 import Footer from './components/Footer'
-
+import ReactHowler from 'react-howler'
 class App extends Component {
 
   setTime = (event) => {
@@ -28,8 +28,15 @@ class App extends Component {
         two: 180,
         three: 300
       },
-      theme: ''
+      theme: '',
+      playing: false
     }
+  }
+
+  handlePlay = () => {
+    this.setState ({
+      playing: true
+    })
   }
 
   render() {
@@ -44,6 +51,11 @@ class App extends Component {
           preset3 = {this.state.presets.three}
           changeTime={this.setTime}
           changeTheme={this.setTheme} />
+          <ReactHowler
+        src='./components/sounds/seagulls.wav'
+        playing={this.state.playing}
+      />
+      <button onClick={this.handlePlay}>Play</button>
         <Footer />
       </div>
     )
