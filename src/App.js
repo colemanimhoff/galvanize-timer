@@ -5,22 +5,45 @@ import Footer from './components/Footer'
 
 class App extends Component {
 
+  setTime = (event) => {
+    event.preventDefault()
+    this.setState({ time: parseInt(event.target.textContent, 10) })
+  }
+
+  setTheme = (event) => {
+    event.preventDefault()
+    this.setState({ theme: event.target.value })
+  }
+
   constructor(props) {
     super (props)
     this.state = {
-      theme: '',
-      time: 0
+      currentTime: {
+        seconds: 0,
+        minutes: 0,
+        hours: 0
+      },
+      presets: {
+        one: 30,
+        two: 180,
+        three: 300
+      },
+      theme: ''
     }
   }
-
-  // componentDidMount() {
-
-  // }
 
   render() {
     return (
       <div className="App">
-        <Timer />
+        <Timer
+          seconds = {this.state.currentTime.seconds}
+          minutes = {this.state.currentTime.minutes}
+          hours = {this.state.currentTime.hours}
+          preset1 = {this.state.presets.one}
+          preset2 = {this.state.presets.two}
+          preset3 = {this.state.presets.three}
+          changeTime={this.setTime}
+          changeTheme={this.setTheme} />
         <Footer />
       </div>
     )

@@ -4,9 +4,9 @@ class Presets extends React.Component {
     render() {
         return(
             <span>
-                <button>00:30</button>
-                <button>03:00</button>
-                <button>05:00</button>
+                <button onClick={this.props.changeTime}>{this.props.preset1}</button>
+                <button onClick={this.props.changeTime}>{this.props.preset2}</button>
+                <button onClick={this.props.changeTime}>{this.props.preset3}</button>
                 <button>+</button>
             </span>
         )

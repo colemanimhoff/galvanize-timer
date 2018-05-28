@@ -1,5 +1,5 @@
 import React from 'react'
-import {Howl, Howler} from 'howler'
+import {Howl} from 'howler'
 
 class Theme extends React.Component {
 
@@ -12,8 +12,8 @@ playSound = (event) => {
 
 render() {
     return(
-        <select id="dropdown">
-            <option onClick={playSound}>Seagulls</option>
+        <select id="dropdown" onChange={this.props.changeTheme}>
+            <option onClick={this.playSound}>Seagulls</option>
             <option>Ocean</option>
             <option>Jungle</option>
             <option>Forest</option>

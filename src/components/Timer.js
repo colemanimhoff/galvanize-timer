@@ -9,17 +9,21 @@ class Timer extends React.Component {
                 <h1>Galvanize Timer</h1>
                 <form>
                     <span>
-                        <input type="text" value="00" name="hours"/>
-                        <input type="text" value="00" name="minutes"/>
-                        <input type="text" value="00" name="seconds"/>
+                        <input value={this.props.seconds}type="number" name="hours"/>
+                        <input value={this.props.minutes} type="number" name="minutes"/>
+                        <input value={this.props.hours} type="number" name="seconds"/>
                     </span>
                     <div>
                         <button>+10</button>
                         <button>-10</button>
                     </div>
-                    <Presets />
+                    <Presets
+                        changeTime={this.props.changeTime}
+                        preset1 = {this.props.preset1}
+                        preset2 = {this.props.preset2}
+                        preset3 = {this.props.preset3}/>
                     <label htmlFor="dropdown"> Select Your Theme</label>
-                    <Theme />
+                    <Theme changeTheme={this.props.changeTheme}/>
                     <span>
                         <button>Start</button>
                         <button>Pause</button>
